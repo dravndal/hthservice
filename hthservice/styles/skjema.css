@@ -1,0 +1,115 @@
+body {
+	text-align: center;
+}
+
+h2 {
+    color:#0C0D0E;
+    font-family:serif, bold;
+}
+
+.formwrapper{
+	text-align: center;
+}
+
+form {
+	display: inline-block;
+	border-width: 5px;
+	border-color: #d9d9d9;
+	border-style: solid;
+	padding: 20px 50px 10px 50px;
+	background-color: #fcfdff;
+}
+label {
+	display:block;
+	margin-top:20px;
+	letter-spacing:2px;
+	font-weight: bold;
+}
+
+select {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -webkit-padding-end: 20px;
+    -moz-padding-end: 20px;
+    -webkit-padding-start: 2px;
+    -moz-padding-start: 2px;
+    background-image: url(../images/select-arrow.png), -webkit-linear-gradient(top, #E5E5E5, #F4F4F4); /* For Chrome and Safari */
+    background-image: url(../images/select-arrow.png), -moz-linear-gradient(top, #E5E5E5, #F4F4F4); /* For old Firefox (3.6 to 15) */
+    background-image: url(../images/select-arrow.png), -ms-linear-gradient(top, #E5E5E5, #F4F4F4); /* For pre-releases of Internet Explorer  10*/
+    background-image: url(../images/select-arrow.png), -o-linear-gradient(top, #E5E5E5, #F4F4F4); /* For old Opera (11.1 to 12.0) */
+    background-image: url(../images/select-arrow.png), linear-gradient(to bottom, #E5E5E5, #F4F4F4); /* Standard syntax; must be last */
+    background-position: center right;
+    background-repeat: no-repeat;
+    border: 1px solid #AAA;
+    border-radius: 2px;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+    color: #555;
+    font-size: inherit;
+    margin: 0;
+    overflow: hidden;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+input, textarea {
+	width:400px;
+	height:45px;
+	background:#efefef;
+	border-radius:5px;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border:1px solid #dedede;
+	padding:5px;
+	margin-top:3px;
+	font-size:1.5em;
+}
+
+input[type=file] {
+  width:300px;
+	height:40px;
+	background:#FFFFFF;
+	font-size:0.7em;
+	color:#949494;
+
+}
+
+input[type=file]:focus { /*Denne brukes når man "marker" boksen så fremhever den boksen*/
+    border:1px solid #97d6eb;
+}
+
+	input:focus, textarea:focus {
+		border:1px solid #97d6eb;
+	}
+
+textarea {
+	height:213px;
+	font-family:Arial, Helvetica, sans-serif;
+	background:url(images/textarea-bg.jpg) right no-repeat #efefef;
+}
+
+input[type="checkbox"]:label{
+  padding-left: 5px;
+	font-size:150%;
+	font-family:Georgia, "Times New Roman", Times, serif;
+	color:#0C0D0E;
+}
+
+input[type=submit] {
+	width:127px;
+	height:38px;
+}
+
+input[type=reset] {
+    background-color: #808080;
+    color:black;
+	width:127px;
+	height:38px;
+    cursor:pointer;
+}
+
+#wrapper{
+	margin-top: 20px;
+}

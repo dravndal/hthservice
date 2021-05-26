@@ -1,0 +1,181 @@
+/* main.css laget av Kevin André Torgrimsen Nordli. Sist endret 14.10.2020 av Kevin André Torgrimsen Nordli. */
+
+/* Globale variabler */
+:root {
+	--main-color: #2998cd;
+	--main-color-hover: #53a3c9;
+	--notification-color: #ff4646;
+	--notification-color-hover: #ff5454;
+}
+
+/* Enkel CSS reset */
+*, *::before, *::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+/* Styling av grunnleggende elementer */
+html {
+	font-family: Arial, Helvetica, sans-serif;
+	color: #f9f9f9;
+}
+
+body {
+	display: flex; /* Benytter oss av hele body som et flex-element for å lettere kunne bestemme flyt og posisjonering */
+	flex-direction: column;
+	background: url(../img/bg.svg) no-repeat; /* Legger til bølgebakgrunnen nederst på alle sidene */
+	background-position: bottom;
+	background-size: contain;
+	background-color: #fff; /* Gjør resten av bakgrunnen hvit */
+	color: #000;
+	min-height: 100vh; /* Minst hele høyden på skjermen */
+}
+
+a {
+	text-decoration: none; /* Ta vekk underlinjer */
+}
+
+h1 {
+	margin-bottom: 16px;
+	font-size: 1.5rem;
+}
+.copyright{
+	margin: 0 auto;
+}
+/* Utility-klasser */
+.description {
+	margin-bottom: 16px;
+}
+
+/* Navigasjonsbar */
+.navbar {
+	display: flex;
+	position: sticky; /* Plasserer sammen med top: 0 navbaren på toppen av skjermen, og vil alltid bli der uansett om du scroller */
+	justify-content: space-between; /* Plasser elementene helt ut til sidene */
+	align-items: center;
+	background-color: #f9f9f9;
+	border-bottom: 1px solid #d9d9d9;
+	top: 0;
+	padding: 16px;
+	width: 100%;
+	height: 52px;
+	z-index: 5;
+}
+
+/* Liten hjelpe-div for å plassere varselikonet og hamburgerknappen på høyre side */
+.navbar-right {
+	display: flex;
+	align-items: center;
+	flex-direction: row-reverse; /* Så varselikonet kommer før hamburgermenyen på mobil, dette er en midlertidig løsning på grunn av javascript */
+}
+
+.navbar-button {
+	display: inline-block;
+	position: relative;
+	cursor: pointer;
+	background-color: none;
+	border-radius: 10px;
+	padding: 6px;
+}
+
+.navbar-button:hover {
+	background-color: rgba(90, 90, 90, 0.4);
+}
+
+.navbar-list {
+	display: flex;
+	flex-direction: column; /* Linkene listes nedover i hamburgermenyen på mobil */
+	position: fixed; /* På samme måte som med navbar settes listen slik at den ikke forsvinner når man scroller */
+	overflow-y: auto;
+	flex-shrink: 0;
+	text-align: center;
+	list-style: none;
+	background-color: #f9f9f9;
+	transform: translateX(100%);
+	visibility: hidden;
+	transition: transform 0.2s ease-in-out;
+	top: 52px;
+	right: 0;
+	bottom: 0;
+	width: 200px; /* Hardkodet width på hamburgermenyen */
+	z-index: 5; /* For å forhindre at andre elementer legger seg over */
+}
+
+/* Klasse for å vise hamburgermenyen */
+.navbar-list-open {
+	visibility: visible;
+	transform: translateX(0);
+}
+
+.navbar-link {
+	display: flex;
+	align-items: center;
+	min-width: max-content;
+	padding: 16px;
+	width: 100%;
+	color: #000000;
+	transition: color 0.2s linear, background-color 0.2s linear;
+}
+
+/* Legger til hovereffekt på alle navigasjonsknappene utenom siden du er på */
+.navbar-link-background:hover:not(.navbar-link-background-active) {
+	background-color: var(--main-color-hover);
+	color: #ffffff;
+}
+
+/* Invertering av fargene på ikonet når man hoverer over navigasjonsknappene */
+.navbar-link-background:hover .navbar-link-icon, .navbar-link-background-active .navbar-link-icon {
+	filter: invert(1);
+}
+
+/* Legger til bakgrunnsfarge og tekstfarge på navigasjonsknappen for siden du er på */
+.navbar-link-background-active {
+	background-color: var(--main-color);
+	color: #ffffff;
+}
+
+/* Ikonene til navigasjonsknappene */
+.navbar-link-icon {
+	margin: 0 8px 0 0;
+	transition: filter 0.2s linear;
+}
+
+.navbar-menu-background {
+	display: block;
+	position: fixed;
+	top: 0;
+	min-width: 100%;
+	min-height: 100%;
+	transition: background-color 0.2s linear;
+	cursor: pointer;
+	visibility: hidden; /* For å skjule det frem til hamburgermenyen blir klikket på */
+	z-index: 4; /* Så det ligger foran alt utenom hamburgermenyen */
+}
+
+/* Regler for desktop */
+@media only screen and (min-width: 1200px) {
+	.navbar {
+		padding: 0 32px;
+	}
+	/* Fjern hamburgermeny */
+	.navbar-button {
+		display: none;
+	}
+
+	.navbar-list {
+		list-style: none;
+		display: flex;
+		flex-shrink: 0;
+		position: unset;
+		flex-direction: row; /* Setter knappene horisontalt istedenfor vertikalt */
+		background-color: unset;
+		align-items: center;
+		transform: translateX(0);
+		visibility: visible;
+		width: unset;
+		margin: 0;
+		overflow: visible;
+	}
+
+}
