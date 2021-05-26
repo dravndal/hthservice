@@ -1,4 +1,3 @@
-<!-- registrer-bruker.php laget av Daniel Ravndal og Leander Didriksen. Sist endret 14.10.2020 av Kevin André Torgrimsen Nordli. -->
 <?php require 'inc/header.php' ?>
 <script src="https://www.google.com/recaptcha/api.js?render=6Ld_OvAaAAAAAPQL2oP07shHo2FxmkP_4gCp4HTx"></script>
 <script>
@@ -81,9 +80,9 @@ grecaptcha.ready(function () {
         <label>Hvor er kjøkkenet/bad/garderobe kjøpt:*</label>
         <select id="butikk" name="butikk">
           <option value="" selected="selected"> -- Velg butikk -- </option>
-          <option value="HTH Alnabru">HTH Kjøkkenforum Sandefjord - Privat</option>
-          <option value="HTH Drammen">HTH Kjøkkenforum Sandefjord - Prosjekt</option>
-          <option value="HTH Oslo">HTH Kjøkkenforum Sandefjord - GDS</option>
+          <option value="HTH Sandefjord - Privat">HTH Kjøkkenforum Sandefjord - Privat</option>
+          <option value="HTH Sandefjord - Prosjekt">HTH Kjøkkenforum Sandefjord - Prosjekt</option>
+          <option value="HTH Sandefjord - GDS">HTH Kjøkkenforum Sandefjord - GDS</option>
         </select>
 
         <label>Beskrivelse av problemet:*</label>

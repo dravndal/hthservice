@@ -12,7 +12,7 @@
         hvitevareleverandøren kontaktes. Norske Elektroleverandørers Landsforening
         (NEL) har på vegne av sine medlemsbedrifter og deres tilknyttede
         servicepartnere landet rundt opprettet en felles portale for online bestilling
-        av servicetjenester for hvitevarer fra en rekke ulike leverandører. Linken finner du </p>
+        av servicetjenester for hvitevarer fra en rekke ulike leverandører. Linken finner du <a style="text-decoration: underline;"href="https://www.servicebestilling.no">her</a> </p>
       <h1 class="cta-heading">Garanti </h1>
     </section>
   </main>

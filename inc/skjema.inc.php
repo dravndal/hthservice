@@ -24,9 +24,9 @@ if(isset($_POST["submit"]) && $_SERVER['REQUEST_METHOD'] === 'POST' && isset($_P
   if ($recaptcha->score >= 0.5) {
 
     //phpmailer variabler
-    $smtpUsername = "danielcravndal@gmail.com";
+    $smtpUsername = "hthservicesandefjord@gmail.com";
     $smtpPassword = "hthservice2021";
-    $emailFrom = "danielcravndal@gmail.com";
+    $emailFrom = "hthservicesandefjord@gmail.com";
     $emailFromName  = "HTH Service";
     $emailTo = $_POST["mailkunde"];
 

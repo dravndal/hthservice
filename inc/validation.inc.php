@@ -1,4 +1,3 @@
-<!-- validation.inc.php laget av Daniel Ravndal. Sist endret 02/11/2020 av Daniel Ravndal -->
 <?php
 
 // Sjekker om feltene i skjemaet er tomme

@@ -1,5 +1,3 @@
-/* main.js laget av Kevin André Torgrimsen Nordli. Sist endret 16.10.2020 av Kevin André Torgrimsen Nordli. */
-
 
 // Deklarering av variabler for henting av elementer i DOM-treet
 const navbarButton = document.querySelector(".navbar-button");
