@@ -1,0 +1,217 @@
+main {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+h1{
+	text-align: center;
+	font-size: 8vw;
+}
+
+/* Søkebar */
+.searchbar {
+	position: relative;
+	width: 100%;
+  margin-bottom: 32px;
+}
+.searchbar-input {
+	background-color: #ffffff;
+	padding: 0 16px 0 42px;
+	height: 40px;
+	border: none;
+	width: 100%;
+	font-size: 1.1rem;
+  border: 1px solid #afafaf;
+}
+
+/* Forstørrelsesglass-ikonet */
+.searchbar::before {
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: 16px;
+	transform: translate(0, -50%);
+	background-image: url(../img/icons/search.svg);
+	background-repeat: no-repeat;
+	min-width: 16px;
+	min-height: 16px;
+  filter: invert(0.4);
+	background-size: 16px 16px;
+}
+
+#user-table-container, .table-container {
+    max-width: 100%;
+    overflow: auto;
+    border-radius: 5px;
+}
+table {
+    width: 100%;
+    text-align: left;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+table th:nth-child(4){
+	display:none;
+}
+table td:nth-child(4){
+	display:none;
+}
+
+table th {
+    padding: 12px 16px;
+}
+
+table tr:nth-child(odd) {
+    background-color: #ebebeb;
+}
+
+table tr:first-child {
+    background-color: #ed4747;
+    color: #f2f2f2;
+}
+table td {
+    padding: 6px 8px;
+    color: #474747;
+}
+
+table tr:nth-child(even) {
+    background-color: #fafafa;
+}
+
+select {
+    padding: 4px;
+    width: 100%;
+}
+
+.delete-button {
+    width: 100%;
+    height: 100%;
+    background-color: #c94c4c;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 4px 12px;
+    border-color: #c94c4c;
+}
+
+.delete-button:hover {
+    background-color: #ee4b4b;
+    border-color: #ee4b4b;
+}
+
+.delete-button-cell {
+	text-align: center;
+	white-space: nowrap;
+	width: 96px;
+}
+.not-found {
+    display: inline-block;
+    color: #3d3d3d;
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-align: center;
+    width: 100%;
+}
+.back-to-top-link {
+    margin-top: 16px;
+}
+
+#montor-list {
+	display: flex;
+	flex-direction: column;
+	width: 95%; /* Character units for å begrense bredden til ca. 90 tegn */
+	margin-top: 30px;
+	padding-bottom: 40px;
+}
+
+.back-btn-wrapper{
+	margin-top: 20px;
+	margin-bottom: 10px;
+	display:flex;
+	align-items: center;
+	justify-content: center;
+}
+.back-button {
+	display: flex;
+	align-items: center;
+	background-color: #ff6b6b;
+	color: #333;
+	border-radius: 5px;
+	padding: 12px;
+	max-width: 150px;
+}
+.back-button img {
+    min-width: 20px;
+    width: 20px;
+    height: 20px;
+    margin-right: 4px;
+}
+
+#tilbakemelding-wrapper {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+#tilbakemelding-skjema{
+	width: 90%;
+	text-align: center;
+}
+#tilbakemelding-skjema input[type=submit] {
+	width: 49%;
+	height:60px;
+	background-color: #00ff99;
+	margin-top: 10px;
+	font-size:1.5em;
+}
+#tilbakemelding-skjema input[type=submit]:hover {
+	background-color: #57ffbc;
+}
+#tilbakemelding-skjema input[type=reset] {
+	width:49%;
+	height:60px;
+	background-color: #ff6b6b;
+	font-size:1.5em;
+}
+#tilbakemelding-skjema input[type=reset]:hover {
+	background-color: #ff5c5c;
+}
+#tilbakemelding{
+	width:100%;
+	background:#efefef;
+	border-radius:5px;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border:1px solid #dedede;
+	padding:5px;
+	margin-top:3px;
+	font-size:1.5em;
+}
+
+/* Regler for desktop */
+@media only screen and (min-width: 1200px) {
+	h1{
+		text-align: center;
+		font-size: 40px;
+	}
+
+	table th:nth-child(4){
+		display:block;
+	}
+	table td:nth-child(4){
+		display:block;
+	}
+	table td {
+	    padding: 12px 16px;
+	}
+	#montor-list {
+		width: 70%;
+	}
+	#tilbakemelding-skjema{
+		width: 600px;
+		text-align: center;
+	}
+
+}

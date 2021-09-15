@@ -1,0 +1,229 @@
+main {
+	padding: 16px;
+	height: auto;
+  text-align: center;
+}
+
+.back-btn-wrapper{
+	display:flex;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 10px;
+}
+.back-button {
+	display: flex;
+	align-items: center;
+	background-color: #ff6b6b;
+	color: #333;
+	border-radius: 5px;
+	padding: 12px;
+	max-width: 150px;
+}
+.back-button img {
+    min-width: 20px;
+    width: 20px;
+    height: 20px;
+    margin-right: 4px;
+}
+
+h1 {
+	font-size: 8vw;
+}
+
+label {
+	display:block;
+	margin-top:20px;
+	letter-spacing:2px;
+	font-weight: bold;
+}
+
+input {
+	max-width:300px;
+	max-height:45px;
+}
+textarea{
+	max-width: 300px;
+	height: 100px;
+}
+select{
+	max-width: 300px;
+	-webkit-appearance: button;
+	-moz-appearance: button;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-webkit-padding-end: 20px;
+	-moz-padding-end: 20px;
+	-webkit-padding-start: 2px;
+	-moz-padding-start: 2px;
+	background-image: url(../images/select-arrow.png), -webkit-linear-gradient(top, #E5E5E5, #F4F4F4); /* For Chrome and Safari */
+	background-image: url(../images/select-arrow.png), -moz-linear-gradient(top, #E5E5E5, #F4F4F4); /* For old Firefox (3.6 to 15) */
+	background-image: url(../images/select-arrow.png), -ms-linear-gradient(top, #E5E5E5, #F4F4F4); /* For pre-releases of Internet Explorer  10*/
+	background-image: url(../images/select-arrow.png), -o-linear-gradient(top, #E5E5E5, #F4F4F4); /* For old Opera (11.1 to 12.0) */
+	background-image: url(../images/select-arrow.png), linear-gradient(to bottom, #E5E5E5, #F4F4F4); /* Standard syntax; must be last */
+	background-position: center right;
+	background-repeat: no-repeat;
+	border: 1px solid #AAA;
+	border-radius: 2px;
+	box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+	font-size: inherit;
+	overflow: hidden;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+#leveringLabel{
+	font-size: 13px;
+}
+
+select {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -webkit-padding-end: 20px;
+    -moz-padding-end: 20px;
+    -webkit-padding-start: 2px;
+    -moz-padding-start: 2px;
+    background-image: url(../images/select-arrow.png), -webkit-linear-gradient(top, #E5E5E5, #F4F4F4); /* For Chrome and Safari */
+    background-image: url(../images/select-arrow.png), -moz-linear-gradient(top, #E5E5E5, #F4F4F4); /* For old Firefox (3.6 to 15) */
+    background-image: url(../images/select-arrow.png), -ms-linear-gradient(top, #E5E5E5, #F4F4F4); /* For pre-releases of Internet Explorer  10*/
+    background-image: url(../images/select-arrow.png), -o-linear-gradient(top, #E5E5E5, #F4F4F4); /* For old Opera (11.1 to 12.0) */
+    background-image: url(../images/select-arrow.png), linear-gradient(to bottom, #E5E5E5, #F4F4F4); /* Standard syntax; must be last */
+    background-position: center right;
+    background-repeat: no-repeat;
+    border: 1px solid #AAA;
+    border-radius: 2px;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+    font-size: inherit;
+    margin: 0;
+		width: 400px;
+    overflow: hidden;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+input:not(input[type=checkbox]), textarea {
+	width:400px;
+	height:45px;
+	background:#efefef;
+	border-radius:5px;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border:1px solid #dedede;
+	padding:5px;
+	margin-top:3px;
+	font-size:1.5em;
+}
+
+	input:focus, textarea:focus {
+		border:1px solid #97d6eb;
+	}
+
+textarea {
+	height:195px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.formwrapper input[type=submit] {
+	width: 100%;
+	background-color: #00ff99;
+}
+.formwrapper input[type=submit]:hover {
+	background-color: #57ffbc;
+}
+.formwrapper input[type=reset] {
+	width: 100%;
+	background-color: #ff4646;
+}
+.formwrapper input[type=reset]:hover {
+	background-color: #ff5c5c;
+}
+
+.formwrapper{
+  display: flex;
+	flex-direction: column;
+  justify-content: center;
+}
+.input-left{
+  margin: 0 15px;
+}
+.input-right{
+  margin: 0 15px;
+}
+.input-right-right{
+  margin: 0 15px;
+}
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.comment-content {
+  background-color: #efefef;
+  width: 100%; /* Could be more or less, depending on screen size */
+	height: 100%;
+	text-align: left;
+}
+
+.comment-wrapper{
+	margin: 30% auto; /* 15% from the top and centered */
+	width: 80%; /* Could be more or less, depending on screen size */
+	height: 50%;
+	background-color: #efefef;
+	border-radius: 10px;
+}
+.close {
+  color: #333;
+  float: right;
+	margin-right: 8px;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+@media only screen and (min-width: 1200px) {
+	h1 {
+		font-size: 66px;
+	}
+	.formwrapper{
+	  display: flex;
+		flex-direction: row;
+	  justify-content: center;
+	}
+
+	input {
+		max-width:90%;
+		max-height:45px;
+	}
+	textarea{
+		max-width:90%;
+	}
+	select{
+		max-width:90%;
+	}
+
+	.comment-wrapper{
+		margin: 10% auto; /* 15% from the top and centered */
+		width: 80%; /* Could be more or less, depending on screen size */
+		height: 50%;
+		background-color: #efefef;
+		border-radius: 10px;
+	}
+
+}
