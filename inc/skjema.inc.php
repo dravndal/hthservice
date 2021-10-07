@@ -50,7 +50,7 @@ if(isset($_POST["submit"]) && $_SERVER['REQUEST_METHOD'] === 'POST' && isset($_P
     $annenkjop = $_POST["annenkjop"] ?? '';
     $leveringsdato = $_POST["leveringsdato"] ?? '';
     $number = substr($mobil, 0, 2) + mt_rand(1000, 9999);
-    $ticket = createTicket($fornavn, $etternavn, $mobil);
+    $ticket = createTicket($fornavn, $etternavn, $number);
 
     // Vedlegg
     $file1 = $_FILES['file1']['tmp_name'];

@@ -43,9 +43,9 @@ if(isset($_POST["submit"]) && $_SERVER['REQUEST_METHOD'] === 'POST' && isset($_P
     $file4 = $_POST["file4"] ?? '';
     $file5 = $_POST["file5"] ?? '';
     $ordrenummer = $_POST["ordrenummer"];
-    $number = substr($ordrenummer, 0, 2) + mt_rand(1000, 9999);
     $leveringsdato = $_POST["leveringsdato"];
-    $ticket = createTicket($kundenavn, $montornavn, $ordrenummer);
+    $number = substr($ordrenummer, 0, 2) + mt_rand(1000, 9999);
+    $ticket = createTicket($kundenavn, $montornavn, $number);
 
     // Vedlegg
     $file1 = $_FILES['file1']['tmp_name'];
