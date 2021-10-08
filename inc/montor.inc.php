@@ -44,7 +44,7 @@ if(isset($_POST["submit"]) && $_SERVER['REQUEST_METHOD'] === 'POST' && isset($_P
     $file5 = $_POST["file5"] ?? '';
     $ordrenummer = $_POST["ordrenummer"];
     $leveringsdato = $_POST["leveringsdato"];
-    $number = substr($ordrenummer, 0, 2) + mt_rand(1000, 9999);
+    $number = mb_substr($ordrenummer, 0, 2) + mt_rand(1000, 9999);
     $ticket = createTicket($kundenavn, $montornavn, $number);
 
     // Vedlegg

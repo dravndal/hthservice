@@ -49,7 +49,7 @@ if(isset($_POST["submit"]) && $_SERVER['REQUEST_METHOD'] === 'POST' && isset($_P
     $leilnummer = $_POST["leilnummer"] ?? '';
     $annenkjop = $_POST["annenkjop"] ?? '';
     $leveringsdato = $_POST["leveringsdato"] ?? '';
-    $number = substr($mobil, 0, 2) + mt_rand(1000, 9999);
+    $number = mb_substr($mobil, 0, 2) + mt_rand(1000, 9999);
     $ticket = createTicket($fornavn, $etternavn, $number);
 
     // Vedlegg

@@ -70,7 +70,7 @@ function createTicket($suffix, $prefix, $number){
 	$suffix = mb_substr($suffix, 0, 2);
 	$prefix = mb_substr($prefix, 0, 2);
 	$ticket = $suffix . $prefix . "-" . $number;
-	$ticket = strtolower($ticket);
+	$ticket = mb_strtolower($ticket);
 	return $ticket;
 }
 
