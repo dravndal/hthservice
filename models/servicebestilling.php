@@ -1,10 +1,15 @@
 <?php
-require_once __DIR__.'/../config/db.php';
-require_once __DIR__.'/../inc/validation.inc.php';
+require_once '../config/db.php';
+require_once '../inc/validation.inc.php';
 
-$db = new mysqlPDO();
+try {
+    $db = new mysqlPDO();
+} catch (PDOException $e) {
+    print "Error!: " . $e->getMessage() . "<br/>";
+    die();
+}
 
-function addBestilling($fornavn, $etternavn, $firma, $adresse, $postnr, $by, $mobil, $epost, $ordrenummer, $kundenummer, $leilighetsnummer, $butikk, $beskrivelse, $annet, $leveringsdato, $ticket){
+function addBestilling($fornavn, $etternavn, $firma, $adresse, $postnr, $by, $mobil, $epost, $ordrenummer, $kundenummer, $leilighetsnummer, $butikk, $beskrivelse, $annet, $leveringsdato, $ticket) {
   $sql = "INSERT INTO `Servicebestilling`(`fornavn`, `etternavn`, `firma`, `adresse`,
     `postnr`, `city`, `mobil`, `epost`, `ordrenummer`, `kundenummer`, `leilighetsnummer`,
     `butikk`, `beskrivelse`, `annet`, `leveringsdato`, `ticket`)
@@ -33,7 +38,7 @@ function addBestilling($fornavn, $etternavn, $firma, $adresse, $postnr, $by, $mo
       $stmt->execute();
     }
 
-    function changeBestilling($fornavn, $etternavn, $firma, $adresse, $postnr, $by, $mobil, $epost, $ordrenummer, $kundenummer, $leilighetsnummer, $butikk, $beskrivelse, $annet, $leveringsdato, $ticket){
+    function changeBestilling($fornavn, $etternavn, $firma, $adresse, $postnr, $by, $mobil, $epost, $ordrenummer, $kundenummer, $leilighetsnummer, $butikk, $beskrivelse, $annet, $leveringsdato, $ticket) {
       $sql = "UPDATE `Servicebestilling` SET `fornavn` = :fornavn, `etternavn` = :etternavn, `firma` = :firma, `adresse` = :adresse, `postnr` = :postnr, `city` = :city, `mobil` = :mobil,
       `epost` = :epost, `ordrenummer` = :ordrenummer, `kundenummer` = :kundenummer, `leilighetsnummer` = :leilighetsnummer, `butikk` = :butikk, `beskrivelse` = :beskrivelse, `annet` = :annet,
       `leveringsdato` = :leveringsdato WHERE `ticket` = :ticket";
@@ -59,15 +64,15 @@ function addBestilling($fornavn, $etternavn, $firma, $adresse, $postnr, $by, $mo
       $stmt->execute();
     }
 
-    function addBestillingMontor($kunde, $montor, $ordrenummer, $beskrivelse, $leveringsdato, $ticket){
+    function addBestillingMontor($kunde, $montor, $ordrenummer, $beskrivelse, $leveringsdato, $ticket) {
       $kundeNavn = explode(" ", $kunde);
       $fornavn = $kunde;
       $etternavn = "";
 
-      if(count($kundeNavn) == 2){
+      if (count($kundeNavn) == 2) {
         $fornavn = $kundeNavn[0];
         $etternavn = $kundeNavn[1];
-      } else if(count($kundeNavn) == 3){
+      } else if(count($kundeNavn) == 3) {
         $fornavn = $kundeNavn[0] . $kundeNavn[1];
         $etternavn = $kundeNavn[2];
       }
@@ -87,7 +92,7 @@ function addBestilling($fornavn, $etternavn, $firma, $adresse, $postnr, $by, $mo
       $stmt->execute();
     }
 
-    function getOrderAjax($search){
+    function getOrderAjax($search) {
       try {
 
         $sql = "SELECT * FROM Servicebestilling WHERE concat(`ticket`,`status`) REGEXP :ticket ORDER BY `status`, `ticket` ASC";
@@ -105,7 +110,7 @@ function addBestilling($fornavn, $etternavn, $firma, $adresse, $postnr, $by, $mo
       }
     }
 
-    function getOrder($ticket){
+    function getOrder($ticket) {
       $sql = "SELECT * FROM Servicebestilling WHERE `ticket` = :ticket";
       $stmt = $GLOBALS['db']->prepare($sql);
       $stmt->bindParam(':ticket', $ticket);
@@ -118,7 +123,7 @@ function addBestilling($fornavn, $etternavn, $firma, $adresse, $postnr, $by, $mo
       }
     }
 
-    function getAllOrders(){
+    function getAllOrders() {
 
       $sql = "SELECT * FROM Servicebestilling ORDER BY `status`, `ticket` ASC";
       $stmt = $GLOBALS['db']->prepare($sql);
@@ -131,14 +136,14 @@ function addBestilling($fornavn, $etternavn, $firma, $adresse, $postnr, $by, $mo
       }
     }
 
-    function deleteOrder($ticket){
+    function deleteOrder($ticket) {
       $sql = 'DELETE FROM `Servicebestilling` WHERE `ticket` = :ticket';
       $stmt = $GLOBALS['db']->prepare($sql);
       $stmt->bindParam(':ticket', $ticket);
       $stmt->execute();
     }
 
-    function updateStatus($status){
+    function updateStatus($status) {
       $status = explode(',', $status);
       $sql = 'UPDATE `Servicebestilling` SET `status` = :status WHERE `ticket` = :ticket';
       $stmt = $GLOBALS['db']->prepare($sql);
@@ -147,7 +152,7 @@ function addBestilling($fornavn, $etternavn, $firma, $adresse, $postnr, $by, $mo
       $stmt->execute();
     }
 
-    function getCommentsAjax($ticket){
+    function getCommentsAjax($ticket) {
       $sql = 'SELECT `kommentarer` FROM Servicebestilling WHERE `ticket`= :ticket';
       $stmt = $GLOBALS['db']->prepare($sql);
       $stmt->bindParam(':ticket', $ticket);
@@ -160,7 +165,7 @@ function addBestilling($fornavn, $etternavn, $firma, $adresse, $postnr, $by, $mo
       }
     }
 
-    function updateComments($status){
+    function updateComments($status) {
       $status = explode(',', $status);
       $sql = 'UPDATE `Servicebestilling` SET `kommentarer` = :comments WHERE `ticket` = :ticket';
       $stmt = $GLOBALS['db']->prepare($sql);
@@ -169,7 +174,7 @@ function addBestilling($fornavn, $etternavn, $firma, $adresse, $postnr, $by, $mo
       $stmt->execute();
     }
 
-    function getTilbakemelding(){
+    function getTilbakemelding() {
       $sql = 'SELECT `tilbakemelding` FROM Tilbakemelding WHERE `id`=1';
       $stmt = $GLOBALS['db']->prepare($sql);
       $stmt->execute();
@@ -181,7 +186,7 @@ function addBestilling($fornavn, $etternavn, $firma, $adresse, $postnr, $by, $mo
       }
     }
 
-    function changeTilbakemelding($tilbakemelding){
+    function changeTilbakemelding($tilbakemelding) {
       $sql = 'UPDATE `Tilbakemelding` SET `tilbakemelding` = :tilbakemelding WHERE `id` = 1';
       $stmt = $GLOBALS['db']->prepare($sql);
       $stmt->bindParam('tilbakemelding', $tilbakemelding);

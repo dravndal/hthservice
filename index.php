@@ -51,11 +51,11 @@
     modal.style.display = "block";
     document.getElementById("modal-body").innerHTML = "<h1 style='text-align: center;'>25 års garanti</h1><p> Det skjer noe på kjøkkenet hver eneste dag. Skapdørene åpnes og lukkes utallige ganger. Skuffene trekkes ut og skyves inn igjen, gang på gang. Det kreves kvalitetsmateriale og -deler for å sikre at alt går glatt og knirkefritt år etter år. Vi gir derfor 25 års garanti på skuffesider og skinner, hengsler og trådvarer samt tilhørende skinner og metallbeslag. Garantien omfatter ikke avfallssystemer, hvitevarer, gassdempere, blandebatterier og elektriske enheter.";
   }
-  five.onclick = function(){
+  five.onclick = function() {
     modal.style.display = "block";
     document.getElementById("modal-body").innerHTML = "<h1 style='text-align:center;'>5 års garanti</h1><p>Vi gir deg fem års garanti på kjøkkenet, badet og garderoben. Skap, benkeplater, vasker, blandebatterier (garanti mot drypp), håndtak, soft-push, LED-belysning og spotter for innbygning dekkes av garantien.";
   }
-  two.onclick = function(){
+  two.onclick = function() {
     modal.style.display = "block";
     document.getElementById("modal-body").innerHTML = "<h1 style='text-align:center;'>2 års garanti</h1><p>Du får to års garanti på de øvrige delene til badet, garderoben og kjøkkenet, for eksempel harde hvitevarer og fritthengende lamper. Rettighetene du har som forbruker i henhold til Kjøpsloven blir på ingen måte begrenset.";
   }

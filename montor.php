@@ -1,7 +1,6 @@
 <?php
 session_start();
-$isLoggedIn = isset($_SESSION['montor']); // Sjekker om sesjonsvariabelet userId finnes. Om det gjør det vet vi at brukeren er logget inn
-if ($isLoggedIn) {
+if (isset($_SESSION['montor'])) {
   if (isset($_SESSION['lastActivity']) && (time() - $_SESSION['lastActivity'] > 1800)) {
     // Logger bruker ut om det er mer enn en halvtime siden siste aktivitet
     session_start();
@@ -11,7 +10,7 @@ if ($isLoggedIn) {
     exit();
   }
   $_SESSION['lastActivity'] = time();
-} else{
+} else {
   header("Location: admin.php");
 }
 require 'inc/header.php';

@@ -5,4 +5,6 @@ if (isset($_SESSION['brukernavn']) && isset($_GET['q'])) {
   $ticket = $_GET['q'];
   $comments = getCommentsAjax($ticket) ?? '';
   echo $comments;
+} else {
+  echo '<span class="not-found">Noe gikk galt!</span>';
 }

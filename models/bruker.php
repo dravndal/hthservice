@@ -1,7 +1,6 @@
 <?php
-
-require_once __DIR__.'/../config/db.php';
-require_once __DIR__.'/../inc/validation.inc.php';
+require_once '../config/db.php';
+require_once '../inc/validation.inc.php';
 
 try {
     $db = new mysqlPDO();
@@ -28,7 +27,7 @@ function createMontor($kode, $fornavn, $etternavn, $tlf, $epost) {
     }
 }
 
-function deleteMontor($kode){
+function deleteMontor($kode) {
   $sql = 'DELETE FROM `Montor` WHERE `kode` = :kode';
   $stmt = $GLOBALS['db']->prepare($sql);
   $stmt->bindParam(':kode', $kode);
@@ -73,7 +72,7 @@ function getMontors() {
     }
 }
 
-function getMontorAjax($search){
+function getMontorAjax($search) {
   try {
     $sql = "SELECT * FROM Montor WHERE `fornavn` LIKE \"%\":fornavn\"%\"";
     $stmt = $GLOBALS['db']->prepare($sql);
@@ -90,7 +89,7 @@ function getMontorAjax($search){
   }
 }
 
-function createAdmin($brukernavn, $passord){
+function createAdmin($brukernavn, $passord) {
   $sql = "INSERT INTO Admin(`brukernavn`, `passord`) VALUES (:brukernavn, :passord)";
   $stmt = $GLOBALS['db']->prepare($sql);
   $hashedPassword = password_hash($passord, PASSWORD_DEFAULT); // Hash passordet
@@ -107,7 +106,7 @@ function loginAdmin($brukernavn, $passord) {
     if ($user) { // Om bruker finnes
         if (!password_verify($passord, $user['passord'])) {
           header("location: ../admin.php?error=feilpassord");
-        } else{
+        } else {
           session_start();
           $_SESSION['brukernavn'] = $user['brukernavn'];
           $_SESSION['lastActivity'] = time();
@@ -118,16 +117,16 @@ function loginAdmin($brukernavn, $passord) {
     }
 }
 
-function loginMontor($pincode){
+function loginMontor($pincode) {
   $user = getMontorById($pincode);
-  if($user){
+  if ($user) {
     session_start();
     $_SESSION['montor'] = $user['kode'];
     $_SESSION['fornavn'] = $user['fornavn'];
     $_SESSION['etternavn'] = $user['etternavn'];
     $_SESSION['lastActivity'] = time();
     header("location: ../montor.php");
-  } else{
+  } else {
     header("location: ../logg-inn.php?error=feilkode");
   }
 }

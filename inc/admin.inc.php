@@ -1,12 +1,12 @@
 <?php
-require_once __DIR__.'/../models/bruker.php';
+require_once '../models/bruker.php';
 require_once 'validation.inc.php'; // henter valideringsfunksjoner
 
-if(isset($_POST['submit'])){
+if (isset($_POST['submit'])) {
   $brukernavn = $_POST['brukernavn'];
   $passord = $_POST['passord'];
-  loginAdmin($brukernavn, $passord);
-} else{
+  loginAdmin(sanitizeInput($brukernavn), sanitizeInput($passord));
+} else {
   header("location: ../admin.php?error=stmtfailed");
   exit();
 }

@@ -12,7 +12,7 @@ if ($isLoggedIn) {
   }
   $brukernavn = $_SESSION['brukernavn'];
   $_SESSION['lastActivity'] = time();
-} else{
+} else {
   header("Location: admin.php");
 }
 require 'inc/header.php';

@@ -1,4 +1,5 @@
 <?php
+session_start();
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\SMTP;
@@ -7,11 +8,11 @@ require '../PHPMailer-master/src/Exception.php';
 require '../PHPMailer-master/src/PHPMailer.php';
 require '../PHPMailer-master/src/SMTP.php';
 
-require_once __DIR__.'/../models/servicebestilling.php';
-require_once __DIR__.'/../models/bruker.php';
+require_once '../models/servicebestilling.php';
+require_once '../models/bruker.php';
 require_once 'validation.inc.php'; // henter valideringsfunksjoner
 
-if(isset($_POST["submit"]) && $_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])){
+if (isset($_POST["submit"]) && $_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])) {
 
   // Build POST request:
   $recaptcha_url = 'https://www.google.com/recaptcha/api/siteverify';
@@ -30,7 +31,6 @@ if(isset($_POST["submit"]) && $_SERVER['REQUEST_METHOD'] === 'POST' && isset($_P
     $emailFromName  = "HTH Service";
 
     //hent verdier fra skjemaet
-    session_start();
     $montor = getMontorById($_SESSION['montor']);
     $kundenavn = $_POST["kundenavn"];
     $montornavn = $_POST["montornavn"];
@@ -91,22 +91,22 @@ if(isset($_POST["submit"]) && $_SERVER['REQUEST_METHOD'] === 'POST' && isset($_P
     $mail->addAttachment($file4, $file4_navn);
     $mail->addAttachment($file5, $file5_navn);
 
-    if(!$mail->send()){
+    if (!$mail->send()) {
       echo "Mailer Error: " . $mail->ErrorInfo;
-    } else{
+    } else {
 
       $mailCustomer = new PHPMailer();
-      $mail->CharSet = 'UTF-8';
-      $mail->Encoding = 'base64';
+      $mailCustomer->CharSet = 'UTF-8';
+      $mailCustomer->Encoding = 'base64';
       $mailCustomer->setFrom($emailFrom, $emailFromName);
       $mailCustomer->addAddress($montoremail);
       $mailCustomer->Subject = 'HTH Servicebestilling';
       $mailCustomer->msgHTML($tilbakemelding . "<br>Referansenummer: " . $ticket);
       $mailCustomer->AltBody = 'HTML messaging not supported';
 
-      if(!$mailCustomer->send()){
+      if (!$mailCustomer->send()) {
         echo "Mailer Error: " . $mailCustomer->ErrorInfo;
-      } else{
+      } else {
         addBestillingMontor($kundenavn, $montorid, $ordrenummer, $beskrivelse, $leveringsdato, $ticket);
         header("location: ../skjema.php?error=none");
         echo '<script language="javascript">';

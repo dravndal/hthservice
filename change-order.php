@@ -3,9 +3,8 @@ require_once 'models/servicebestilling.php';
 session_start();
 $currentpage = basename($_SERVER['PHP_SELF']);
 $currentpage = strtolower($currentpage);
-$isLoggedIn = isset($_SESSION['brukernavn']); // Sjekker om sesjonsvariabelet userId finnes. Om det gjør det vet vi at brukeren er logget inn
 
-if ($isLoggedIn) {
+if (isset($_SESSION['brukernavn'])) {
   if (isset($_SESSION['lastActivity']) && (time() - $_SESSION['lastActivity'] > 1800)) {
     // Logger bruker ut om det er mer enn en halvtime siden siste aktivitet
     session_start();
@@ -37,7 +36,7 @@ if ($isLoggedIn) {
   $leveringsdato = $order[0]["leveringsdato"];
   $status = $order[0]["status"];
 
-} else{
+} else {
   header("Location: https://www.hthservice.no/admin.php");
 }
 require 'inc/header.php';
@@ -156,7 +155,7 @@ require 'inc/header.php';
   var ikon = document.getElementById("kommentar-ikon");
   var ticket = document.getElementById("ticket").value;
 
-  ikon.onclick = function(){
+  ikon.onclick = function() {
       comment.style.display = "block";
       var xmlhttp = new XMLHttpRequest();
       xmlhttp.open("GET", "inc/fetch-comments.inc.php?q=" + ticket, true);

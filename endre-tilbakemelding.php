@@ -2,9 +2,8 @@
 session_start();
 $currentpage = basename($_SERVER['PHP_SELF']);
 $currentpage = strtolower($currentpage);
-$isLoggedIn = isset($_SESSION['brukernavn']); // Sjekker om sesjonsvariabelet brukernavn finnes. Om det gjør det vet vi at brukeren er logget inn
 
-if ($isLoggedIn) {
+if (isset($_SESSION['brukernavn']) {
   if (isset($_SESSION['lastActivity']) && (time() - $_SESSION['lastActivity'] > 1800)) {
     // Logger bruker ut om det er mer enn en halvtime siden siste aktivitet
     session_start();
@@ -15,7 +14,7 @@ if ($isLoggedIn) {
   }
   $brukernavn = $_SESSION['brukernavn'];
   $_SESSION['lastActivity'] = time();
-} else{
+} else {
   header("Location: https://www.hthservice.no/admin.php");
 }
 require 'inc/header.php';
@@ -34,7 +33,7 @@ require 'inc/header.php';
         echo '<script language="javascript">';
         echo 'alert("Tilbakemelding endret!")';
         echo '</script>';
-      } else if($_GET["error"] == "stmt"){
+      } else if($_GET["error"] == "stmt") {
         echo '<script language="javascript">';
         echo 'alert("noe gikk galt!")';
         echo '</script>';

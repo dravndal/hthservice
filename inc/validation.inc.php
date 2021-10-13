@@ -15,7 +15,7 @@ function emptyMontorForm($kundenavn, $montornavn, $file, $ordrenummer, $beskrive
 	$result;
 	if (empty($kundenavn) || empty($montornavn) || empty($file) || empty($beskrivelse) || empty($ordrenummer) || empty($leveringsdato)) {
 		$result = true;
-	} else{
+	} else {
 		$result = false;
 	}
 	return $result;
@@ -35,9 +35,9 @@ function invalidPost($postnr){
 // Sjekker om lovlig telefonnr
 function invalidPhone($mobil){
 	$result;
-	if(!preg_match("/^\d{8,14}$/", $mobil)){
+	if (!preg_match("/^\d{8,14}$/", $mobil)) {
 		$result = true;
-	} else{
+	} else {
 		$result = false;
 	}
 	return $result;

@@ -37,129 +37,129 @@ if (navbarButton && navbarList && navbarMenuBackground) { // Sørg for å kun le
   })
 }
 
-if(kundenavn){
+if (kundenavn) {
   kundenavn.addEventListener("focusout", () => {
-    if(kundenavn.value.match("^[a-zA-ZæøåÆØÅ  -]+$") && kundenavn.value != ""){
+    if (kundenavn.value.match("^[a-zA-ZæøåÆØÅ  -]+$") && kundenavn.value != "") {
       firstName.style.border="2px solid #00FF00";
-    } else if(kundenavn.value != ""){
+    } else if(kundenavn.value != "") {
       kundenavn.style.border="2px solid red";
-    } else{
+    } else {
       kundenavn.style.border="none";
     }
   });
 }
 
-if(firstName){
+if (firstName) {
   firstName.addEventListener("focusout", () => {
-    if(firstName.value.match("^[a-zA-ZæøåÆØÅ  -]+$") && firstName.value != ""){
+    if (firstName.value.match("^[a-zA-ZæøåÆØÅ  -]+$") && firstName.value != "") {
       firstName.style.border="2px solid #00FF00";
     } else if(firstName.value != "") {
       firstName.style.border="2px solid red";
-    } else{
+    } else {
       firstName.style.border="none";
     }
   });
 
   firstName.addEventListener("input", () => {
-    if(firstName.value == ""){
+    if (firstName.value == "") {
       firstName.style.border="none";
     }
   });
 }
 
-if(lastName){
+if (lastName) {
   lastName.addEventListener("focusout", () => {
-    if(lastName.value.match("^[a-zA-ZæøåÆØÅ  -]+$") && lastName.value != ""){
+    if (lastName.value.match("^[a-zA-ZæøåÆØÅ  -]+$") && lastName.value != "") {
       lastName.style.border="2px solid #00FF00";
     } else if(lastName.value != "") {
       lastName.style.border="2px solid red";
-    } else{
+    } else {
       lastName.style.border="none";
     }
   });
 
   lastName.addEventListener("input", () => {
-    if(lastName.value == ""){
+    if (lastName.value == "") {
       lastName.style.border="none";
     }
   });
 }
 
-if(company){
+if (company) {
   company.addEventListener("focusout", () => {
-    if(company.value.match("^[a-zA-ZæøåÆØÅ]+$") && company.value != ""){
+    if (company.value.match("^[a-zA-ZæøåÆØÅ]+$") && company.value != "") {
       company.style.border="2px solid #00FF00";
     } else if(company.value != "") {
       company.style.border="2px solid red";
-    } else{
+    } else {
       company.style.border="none";
     }
   });
 
   company.addEventListener("input", () => {
-    if(company.value == ""){
+    if (company.value == "") {
       company.style.border="none";
     }
   });
 }
 
-if(address){
+if (address) {
   address.addEventListener("focusout", () => {
-    if(address.value.match("[a-zA-ZæøåÆØÅ][0-9]{0,3}") && address.value != ""){
+    if (address.value.match("[a-zA-ZæøåÆØÅ][0-9]{0,3}") && address.value != "") {
       address.style.border="2px solid #00FF00";
     } else if(address.value != "") {
       address.style.border="2px solid red";
-    } else{
+    } else {
       address.style.border="none";
     }
   });
 
   address.addEventListener("input", () => {
-    if(address.value == ""){
+    if (address.value == "") {
       address.style.border="none";
     }
   });
 }
 
-if(post){
+if (post) {
   post.addEventListener("focusout", () => {
-    if(post.value.match("[0-9]{4}") && post.value != ""){
+    if (post.value.match("[0-9]{4}") && post.value != "") {
       post.style.border="2px solid #00FF00";
     } else if(post.value != "") {
       post.style.border="2px solid red";
-    } else{
+    } else {
       post.style.border="none";
     }
   });
 
   post.addEventListener("input", () => {
-    if(post.value == ""){
+    if (post.value == "") {
       post.style.border="none";
     }
   });
 }
 
-if(city){
+if (city) {
   city.addEventListener("focusout", () => {
-    if(city.value.match("^[a-zA-ZæøåÆØÅ]+$") && city.value != ""){
+    if (city.value.match("^[a-zA-ZæøåÆØÅ]+$") && city.value != "") {
       city.style.border="2px solid #00FF00";
     } else if(city.value != "") {
       city.style.border="2px solid red";
-    } else{
+    } else {
       city.style.border="none";
     }
   });
 
   city.addEventListener("input", () => {
-    if(city.value == ""){
+    if (city.value == "") {
       city.style.border="none";
     }
   });
 }
 
-if(phone){
+if (phone) {
   phone.addEventListener("focusout", () => {
-    if(phone.value.match("^[0-9]+$") && phone.value != ""){
+    if (phone.value.match("^[0-9]+$") && phone.value != "") {
       phone.style.border="2px solid #00FF00";
       document.getElementById("mobil-label").style.color = "#333";
       document.getElementById("mobil-label").innerHTML = "Mobil:*";
@@ -167,21 +167,21 @@ if(phone){
       phone.style.border="2px solid red";
       document.getElementById("mobil-label").style.color = "red";
       document.getElementById("mobil-label").innerHTML += " ingen mellomrom i telefonnummeret";
-    } else{
+    } else {
       phone.style.border="none";
     }
   });
 
   phone.addEventListener("input", () => {
-    if(phone.value == ""){
+    if (phone.value == "") {
       phone.style.border="none";
     }
   });
 }
 
-if(email){
+if (email) {
   email.addEventListener("focusout", () => {
-    if(email.value.indexOf("@") > 0 && email.value != ""){
+    if (email.value.indexOf("@") > 0 && email.value != "") {
       email.style.border="2px solid #00FF00";
       document.getElementById("epost-label").style.color = "#333";
       document.getElementById("epost-label").innerHTML = " E-post:*";
@@ -189,21 +189,21 @@ if(email){
       email.style.border="2px solid red";
       document.getElementById("epost-label").style.color = "red";
       document.getElementById("epost-label").innerHTML += "Skriv gyldig E-post";
-    } else{
+    } else {
       email.style.border="none";
     }
   });
 
   email.addEventListener("input", () => {
-    if(email.value == ""){
+    if (email.value == "") {
       email.style.border="none";
     }
   });
 }
 
-if(orderNumber){
+if (orderNumber) {
   orderNumber.addEventListener("focusout", () => {
-    if(orderNumber.value.match("^[0-9]+$") && orderNumber.value != ""){
+    if (orderNumber.value.match("^[0-9]+$") && orderNumber.value != "") {
       orderNumber.style.border="2px solid #00FF00";
       document.getElementById("ordrenummer-label").style.color = "#333";
       document.getElementById("ordrenummer-label").innerHTML = " Ordrenummer:";
@@ -211,21 +211,21 @@ if(orderNumber){
       orderNumber.style.border="2px solid red";
       document.getElementById("ordrenummer-label").style.color = "red";
       document.getElementById("ordrenummer-label").innerHTML += " Ordrenummer består av kun siffer";
-    } else{
+    } else {
       orderNumber.style.border="none";
     }
   });
 
   orderNumber.addEventListener("input", () => {
-    if(orderNumber.value == ""){
+    if (orderNumber.value == "") {
       orderNumber.style.border="none";
     }
   });
 }
 
-if(customerId){
+if (customerId) {
   customerId.addEventListener("focusout", () => {
-    if(customerId.value.match("^[0-9]+$") && customerId.value != ""){
+    if (customerId.value.match("^[0-9]+$") && customerId.value != "") {
       customerId.style.border="2px solid #00FF00";
       document.getElementById("ordrenummer-label").style.color = "#333";
       document.getElementById("ordrenummer-label").innerHTML = " Kundenummer:";
@@ -233,77 +233,77 @@ if(customerId){
       customerId.style.border="2px solid red";
       document.getElementById("ordrenummer-label").style.color = "red";
       document.getElementById("ordrenummer-label").innerHTML += " kundenummer består av kun siffer";
-    } else{
+    } else {
       customerId.style.border="none";
     }
   });
 
   customerId.addEventListener("input", () => {
-    if(customerId.value == ""){
+    if (customerId.value == "") {
       customerId.style.border="none";
     }
   });
 }
 
-if(apmtNumber){
+if (apmtNumber) {
   apmtNumber.addEventListener("focusout", () => {
-    if(apmtNumber.value.match("^[0-9]$") && apmtNumber.value != ""){
+    if (apmtNumber.value.match("^[0-9]$") && apmtNumber.value != "") {
       apmtNumber.style.border="2px solid #00FF00";
     } else if(apmtNumber.value != "") {
       apmtNumber.style.border="2px solid red";
-    } else{
+    } else {
       apmtNumber.style.border="none";
     }
   });
 
   apmtNumber.addEventListener("input", () => {
-    if(apmtNumber.value == ""){
+    if (apmtNumber.value == "") {
       apmtNumber.style.border="none";
     }
   });
 }
 
-if(selectShop){
+if (selectShop) {
   selectShop.addEventListener("change", () => {
-    if(selectShop.value != ""){
+    if (selectShop.value != "") {
       selectShop.style.border="2px solid #00FF00";
     }
   });
 
   selectShop.addEventListener("input", () => {
-    if(selectShop.value == ""){
+    if (selectShop.value == "") {
       selectShop.style.border="none";
     }
   });
 }
 
-if(description){
+if (description) {
   description.addEventListener("focusout", () => {
-    if(description.value != ""){
+    if (description.value != "") {
       description.style.border="2px solid #00FF00";
     }
   });
 
   description.addEventListener("input", () => {
-    if(description.value == ""){
+    if (description.value == "") {
       description.style.border="none";
     }
   });
 }
 
-if(registeredOn){
+if (registeredOn) {
   registeredOn.addEventListener("focusout", () => {
-    if(registeredOn.value.match("^[a-zA-ZæøåÆØÅ_ ]+$") && registeredOn.value != ""){
+    if (registeredOn.value.match("^[a-zA-ZæøåÆØÅ_ ]+$") && registeredOn.value != "") {
       registeredOn.style.border="2px solid #00FF00";
     } else if(registeredOn.value != "") {
       registeredOn.style.border="2px solid red";
-    } else{
+    } else {
       registeredOn.style.border="none";
     }
   });
 
   registeredOn.addEventListener("input", () => {
-    if(registeredOn.value == ""){
+    if (registeredOn.value == "") {
       registeredOn.style.border="none";
     }
   });

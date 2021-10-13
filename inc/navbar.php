@@ -27,16 +27,14 @@ $currentPage = strtolower(basename($_SERVER['PHP_SELF']));
     </li>
     <div class="navbar-divider navbar-divider--vertical"></div>
     <?php
-    $isLoggedIn = isset($_SESSION['brukernavn']); // Sjekker om sesjonsvariabelet userId finnes. Om det gjør det vet vi at brukeren er logget inn
+    $isLoggedIn = isset($_SESSION['brukernavn']);
       if ($isLoggedIn) {
-        /* Linken til min-side.php. I utgangspunktet skulle vi ha profilbilde her fremfor brukerikonet som er der nå, men siden kun kandidater kan ha bilder så ble det ikke noe av */
         echo "<li class='navbar-list-item'><a class='navbar-link";
         if($currentPage == "administrasjon.php" ) { echo ' navbar-link-background-active';}
         echo"' href='administrasjon.php'><img class='navbar-link-icon' src='img/icons/cog-solid.svg' alt='' style='width: 20px; height: 20px; border-radius: 50%;'>Admin</a></li>";
         /* Link til logg-ut.php */
         echo "<li class='navbar-list-item'><a class='navbar-link' href='logg-ut.php'><img class='navbar-link-icon' src='img/icons/sign-out-alt-solid.svg' alt='' style='width: 20px; height: 20px;'>Logg ut</a></li>";
-      }
-      else {
+      } else {
         /* Om du ikke er innlogget vises registrer-bruker og logg-inn i steden for. */
         echo "<li class='navbar-list-item'><a class='navbar-link";
         if($currentPage == "admin.php" ) { echo ' navbar-link-background-active';}

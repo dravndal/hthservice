@@ -1,8 +1,8 @@
 <?php
-require_once __DIR__.'/../models/bruker.php';
+require_once '../models/bruker.php';
 require_once 'validation.inc.php'; // henter valideringsfunksjoner
 
-if(isset($_POST['submit']) && $_SERVER['REQUEST_METHOD'] === 'POST'){
+if (isset($_POST['submit']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
   $kode = $_POST['kode'];
   $fornavn = $_POST['montorfnavn'];
   $etternavn = $_POST['montorenavn'];
@@ -11,7 +11,7 @@ if(isset($_POST['submit']) && $_SERVER['REQUEST_METHOD'] === 'POST'){
 
   createMontor(sanitizeInput($kode), sanitizeInput($fornavn), sanitizeInput($etternavn), sanitizeInput($tlf), sanitizeInput($epost));
 
-} else{
+} else {
   header("location: ../admin.php?error=stmtfailed");
   exit();
 }

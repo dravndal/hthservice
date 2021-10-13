@@ -5,11 +5,10 @@ session_start();
 if (isset($_SESSION['brukernavn'])) {
   $tilbakemelding = getTilbakemelding();
 
-  if ($tilbakemelding) { // Hvis det er minst 1 verdi i arrayet
+  if ($tilbakemelding != false) { 
     echo $tilbakemelding;
   } else {
       echo '<span class="not-found">Ingen tilbakemelding funnet.</span>';
-
   }
 }
 

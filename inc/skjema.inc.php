@@ -7,10 +7,10 @@ require '../PHPMailer-master/src/Exception.php';
 require '../PHPMailer-master/src/PHPMailer.php';
 require '../PHPMailer-master/src/SMTP.php';
 
-require_once __DIR__.'/../models/servicebestilling.php';
+require_once '../models/servicebestilling.php';
 require_once 'validation.inc.php'; // henter valideringsfunksjoner
 
-if(isset($_POST["submit"]) && $_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])){
+if (isset($_POST["submit"]) && $_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])) {
 
   // Build POST request:
   $recaptcha_url = 'https://www.google.com/recaptcha/api/siteverify';
@@ -118,23 +118,26 @@ if(isset($_POST["submit"]) && $_SERVER['REQUEST_METHOD'] === 'POST' && isset($_P
     $mail->addAttachment($file4, $file4_navn);
     $mail->addAttachment($file5, $file5_navn);
 
-    if(!$mail->send()){
+    if (!$mail->send()) {
       echo "Mailer Error: " . $mail->ErrorInfo;
-    } else{
+    } else {
 
       $mailCustomer = new PHPMailer();
-      $mail->CharSet = 'UTF-8';
-      $mail->Encoding = 'base64';
+      $mailCustomer->CharSet = 'UTF-8';
+      $mailCustomer->Encoding = 'base64';
       $mailCustomer->setFrom($emailFrom, $emailFromName);
       $mailCustomer->addAddress($emailTo);
       $mailCustomer->Subject = 'HTH Servicebestilling';
       $mailCustomer->msgHTML($tilbakemelding . "<br>Referansenummer: " . $ticket);
       $mailCustomer->AltBody = 'HTML messaging not supported';
 
-      if(!$mailCustomer->send()){
+      if (!$mailCustomer->send()) {
         echo "Mailer Error: " . $mailCustomer->ErrorInfo;
-      } else{
-        addBestilling($fornavn, $etternavn, $firma, $adresse, $postnr, $by, $mobil, $emailTo, $ordrenummer, $kundenummer, $leilnummer, $butikk, $beskrivelse, $annenkjop, $leveringsdato, $ticket);
+      } else {
+        addBestilling(sanitizeInput($fornavn), sanitizeInput($etternavn), sanitizeInput($firma), sanitizeInput($adresse), sanitizeInput($postnr),
+        sanitizeInput($by), sanitizeInput($mobil), sanitizeInput($emailTo), sanitizeInput($ordrenummer), sanitizeInput($kundenummer),
+        sanitizeInput($leilnummer), sanitizeInput($butikk), sanitizeInput($beskrivelse), sanitizeInput($annenkjop),
+        sanitizeInput($leveringsdato), sanitizeInput($ticket));
         header("location: ../skjema.php?error=none");
         echo '<script language="javascript">';
         echo 'alert("Bestilling sendt! Sjekk din e-post for bekreftelse")';

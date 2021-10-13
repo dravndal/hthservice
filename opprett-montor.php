@@ -1,8 +1,6 @@
 <?php
 session_start();
-$isLoggedIn = isset($_SESSION['brukernavn']); // Sjekker om sesjonsvariabelet userId finnes. Om det gjør det vet vi at brukeren er logget inn
-
-if ($isLoggedIn) {
+if (isset($_SESSION['brukernavn'])) {
   if (isset($_SESSION['lastActivity']) && (time() - $_SESSION['lastActivity'] > 1800)) {
     // Logger bruker ut om det er mer enn en halvtime siden siste aktivitet
     session_start();
@@ -13,7 +11,7 @@ if ($isLoggedIn) {
   }
   $brukernavn = $_SESSION['brukernavn'];
   $_SESSION['lastActivity'] = time();
-} else{
+} else {
   header("Location: https://www.hthservice.no/admin.php");
 }
 require 'inc/header.php';

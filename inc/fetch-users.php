@@ -16,6 +16,5 @@ if (isset($_SESSION['brukernavn']) && isset($_GET['q'])) {
       echo $userTable; // Vis tabellen
   } else {
       echo '<span class="not-found">Ingen brukere funnet.</span>';
-
   }
 }
